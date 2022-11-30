@@ -1,4 +1,4 @@
-com.mothering.social// !$*UTF8*$!
+com.wrteam.prime_web// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -495,7 +495,7 @@ com.mothering.social// !$*UTF8*$!
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				com.mothering.social = com.wrteam.webviewprime;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mothering.social;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -630,7 +630,7 @@ com.mothering.social// !$*UTF8*$!
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				com.mothering.social = com.wrteam.webviewprime;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mothering.social;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -659,7 +659,7 @@ com.mothering.social// !$*UTF8*$!
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				com.mothering.social = com.wrteam.webviewprime;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mothering.social;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -697,7 +697,7 @@ com.mothering.social// !$*UTF8*$!
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				com.mothering.social = com.wrteam.webviewprime.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mothering.social.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -736,7 +736,7 @@ com.mothering.social// !$*UTF8*$!
 				);
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				com.mothering.social = com.wrteam.webviewprime.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mothering.social.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -773,7 +773,7 @@ com.mothering.social// !$*UTF8*$!
 				);
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				com.mothering.social = com.wrteam.webviewprime.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mothering.social.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
