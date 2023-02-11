@@ -5,6 +5,7 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:file_utils/file_utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,7 @@ class _LoadWebViewState extends State<LoadWebView>
   double progress = 0;
   String url = '';
   int _previousScrollY = 0;
+  var received;
   bool isLoading = false;
   bool showErrorPage = false;
   bool slowInternetPage = false;
@@ -481,53 +483,123 @@ class _LoadWebViewState extends State<LoadWebView>
                             (controller, downloadStartRrquest) async {
                           requestPermission().then((status) async {
                             String url = downloadStartRrquest.url.toString();
+                            print(url.toString());
                             if (status == true) {
                               try {
                                 Dio dio = Dio();
-                                File file = File(url.toString());
-                                String fileName = url.toString().substring(
-                                    url.toString().lastIndexOf('/') + 1,
-                                    url.toString().lastIndexOf('?'));
-
-                                String savePath = await getFilePath(fileName);
-                                print(savePath);
+                                String dirloc = '';
+                                if (Platform.isAndroid) {
+                                  dirloc = (await getExternalStorageDirectory())!.path;
+                                } else if (Platform.isIOS) {
+                                  dirloc = (await getApplicationDocumentsDirectory()).path;
+                                }
+                                print(dirloc);
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
                                   content: const Text('Downloading file..'),
                                 ));
-                                await dio.download(url.toString(), savePath,
-                                    onReceiveProgress: (rec, total) {
-                                  // _bottomSheetController.setState!(() {
-                                  //   downloading = true;
-                                  //   progress = (rec / total);
-                                  //   downloadingStr = downloadingStartString;
-                                  // });
-                                });
+                                try {
+                                  String downloadName = "sample";
+                                  String fullPath = '$dirloc/$downloadName.pdf';
+                                  String fileSaved = '$dirloc/$downloadName.pdf/';
+                                  FileUtils.mkdir([fullPath]);
+                                  print(fullPath);
+                                  await dio.download(
+                                      url, fileSaved ,
+                                      onReceiveProgress: (receivedBytes, totalBytes) async {
+                                        received = ((receivedBytes / totalBytes) * 100);
+                                        setState(() {
+                                          progress =
+                                              (((receivedBytes / totalBytes) * 100).toStringAsFixed(0) + '%') as double;
+                                        });
 
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(SnackBar(
-                                  content: const Text('Download Complete'),
-                                ));
+                                        if (received == 100.0) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                            content: Text('Files has been downloaded to $fileSaved'),
+                                          ));
+
+                                          // if (url.contains('.pdf')) {
+                                          //   Navigator.push(
+                                          //     context,
+                                          //     MaterialPageRoute(
+                                          //       builder: (context) => DownloadViewer(
+                                          //         title: title!,
+                                          //         filePath: InfixApi().root + url,
+                                          //       ),
+                                          //     ),
+                                          //   );
+                                          // } else if (url.contains('.jpg') ||
+                                          //     url.contains('.png') ||
+                                          //     url.contains('.jpeg')) {
+                                          //   Navigator.push(
+                                          //     context,
+                                          //     MaterialPageRoute(
+                                          //       builder: (context) => Utils.documentViewer(InfixApi().root + url, context),
+                                          //     ),
+                                          //   );
+                                          // }
+                                          // else {
+                                          //   Utils.showToast('No file exists');
+                                          //   // var file = await DefaultCacheManager()
+                                          //   //     .getSingleFile(InfixApi().root + url);
+                                          //   // // OpenFile.open(file.path);
+                                          //   // Navigator.push(
+                                          //   //   context,
+                                          //   //   MaterialPageRoute(
+                                          //   //     builder: (context) => Utils.fullScreenImageView(file.path),
+                                          //   //   ),
+                                          //   // );
+                                          // }
+                                        }
+                                      });
+                                } catch (e) {
+                                  print(e);
+                                }
+                            //     File file = File(url.toString());
+                            //     String fileName = url.toString().substring(
+                            //         url.toString().lastIndexOf('/') + 1,
+                            //         url.toString().lastIndexOf('?'));
+                            //
+                            //     String savePath = await getFilePath(fileName);
+                            //     print(savePath);
+                            //     ScaffoldMessenger.of(context)
+                            //         .showSnackBar(SnackBar(
+                            //       content: const Text('Downloading file..'),
+                            //     ));
+                            //     await dio.download(url.toString(), savePath,
+                            //         onReceiveProgress: (rec, total) {
+                            //       // _bottomSheetController.setState!(() {
+                            //       //   downloading = true;
+                            //       //   progress = (rec / total);
+                            //       //   downloadingStr = downloadingStartString;
+                            //       // });
+                            //     });
+                            //
+                            //     ScaffoldMessenger.of(context)
+                            //         .showSnackBar(SnackBar(
+                            //       content: const Text('Download Complete'),
+                            //     ));
                               } on Exception catch (e) {
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
                                   content: const Text('Downloading failed'),
                                 ));
                               }
-                              // if (await canLaunchUrl(url)) {
-                              //   // Launch the App
-                              //   await launchUrl(url,
-                              //       mode: LaunchMode.platformDefault);
-
-                              //   // and cancel the request
-                              // }
-                            } else {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(
-                                content: const Text('Permision denied'),
-                              ));
-                            }
-                          });
+                            //   // if (await canLaunchUrl(url)) {
+                            //   //   // Launch the App
+                            //   //   await launchUrl(url,
+                            //   //       mode: LaunchMode.platformDefault);
+                            //
+                            //   //   // and cancel the request
+                            //   // }
+                            // } else {
+                            //   ScaffoldMessenger.of(context)
+                            //       .showSnackBar(SnackBar(
+                            //     content: const Text('Permision denied'),
+                            //   ));
+                            // }
+                          }});
                         },
                         onUpdateVisitedHistory:
                             (controller, url, androidIsReload) {

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
  xmlns:tools="http://schemas.android.com/tools"
-    package="com.mothering.social">
+    package="com.wrteam.prime_web">
     <queries>
       <!-- If your app opens https URLs -->
       <intent>
@@ -47,9 +47,9 @@
       <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
        <!-- end remove permissions from  list if not using in your website -->
    <application
-        android:label="MSocial"
+        android:label="Mothering Leads"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher_squircle"
+        android:icon="@mipmap/ic_launcher"
         android.usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">     <!-- this tag added to display downloading notification -->
 

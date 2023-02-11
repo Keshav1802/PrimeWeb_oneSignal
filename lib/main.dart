@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:prime_web/screens/home_screen.dart';
 import 'package:prime_web/screens/settings_screen.dart';
@@ -34,6 +35,7 @@ Future main() async {
   WidgetsFlutterBinding
       .ensureInitialized(); //when we have to communicate to flutter framework before initializing app
 
+  await FlutterDownloader.initialize();
   if (showInterstitialAds) {
     AdMobService.initialize();
   }
@@ -126,8 +128,8 @@ class _MyAppState extends State<MyApp> {
             switch (settings.name) {
               case 'home':
                 return MaterialPageRoute(builder: (_) => HomeScreen());
-              case 'settings':
-                return MaterialPageRoute(builder: (_) => SettingsScreen());
+              // case 'settings':
+              //   return MaterialPageRoute(builder: (_) => SettingsScreen());
             }
           },
         );

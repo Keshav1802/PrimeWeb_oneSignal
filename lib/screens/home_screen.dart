@@ -63,34 +63,34 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           // extendBody: true,
           // backgroundColor: Theme.of(context).cardColor,
           body: LoadWebView(webinitialUrl, true),
-          floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-          floatingActionButton: FadeTransition(
-              opacity: Tween<double>(begin: 1.0, end: 0.0).animate(
-                  CurvedAnimation(
-                      parent: navigationContainerAnimationController,
-                      curve: Curves.easeInOut)),
-              child: SlideTransition(
-                  position: Tween<Offset>(
-                          begin: Offset.zero, end: const Offset(0.0, 1.0))
-                      .animate(CurvedAnimation(
-                          parent: navigationContainerAnimationController,
-                          curve: Curves.easeInOut)),
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: FloatingActionButton(
-                      child: Lottie.asset(
-                        Theme.of(context).colorScheme.settingsIcon,
-                        height: 30,
-                        repeat: true,
-                      ),
-                      onPressed: () {
-                        // setState(() {
-                        navigatorKey.currentState!.pushNamed('settings');
-                        // });
-                      },
-                    ),
-                  )))),
-    );
+          // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+          // floatingActionButton: FadeTransition(
+          //     opacity: Tween<double>(begin: 1.0, end: 0.0).animate(
+          //         CurvedAnimation(
+          //             parent: navigationContainerAnimationController,
+          //             curve: Curves.easeInOut)),
+          //     child: SlideTransition(
+          //         position: Tween<Offset>(
+          //                 begin: Offset.zero, end: const Offset(0.0, 1.0))
+          //             .animate(CurvedAnimation(
+          //                 parent: navigationContainerAnimationController,
+          //                 curve: Curves.easeInOut)),
+          //         child: Container(
+          //           padding: EdgeInsets.all(10),
+          //           child: FloatingActionButton(
+          //             child: Lottie.asset(
+          //               Theme.of(context).colorScheme.settingsIcon,
+          //               height: 30,
+          //               repeat: true,
+          //             ),
+          //             onPressed: () {
+          //               // setState(() {
+          //               navigatorKey.currentState!.pushNamed('settings');
+          //               // });
+          //             },
+          //           ),
+          //         )))),
+    ));
   }
 
   Widget displayAd() {

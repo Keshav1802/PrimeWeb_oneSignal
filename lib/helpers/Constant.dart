@@ -1,10 +1,10 @@
-const appName = 'MSocial';
+const appName = 'Mothering Leads';
 
-const String appbartitle = 'MSocial';
-const String andoidPackageName = 'com.mothering.social';
+const String appbartitle = 'Mothering Leads';
+const String andoidPackageName = 'com.mothering.leads';
 
 //change this url to set your URL in app
-String webinitialUrl = 'https://www.msocialin.com/';
+String webinitialUrl = 'https://leads.mothering.in/';
 const String firstTabUrl = 'https://www.google.com';
 
 //keep local content of pages of setting screen
@@ -15,7 +15,7 @@ const String termsPageURL = 'https://msocialin.com/terms/terms';
 //Change App id of android and IOS app
 const String androidAppId = andoidPackageName;
 
-const String iOSAppId = 'ZF3Y932DXT.com.mothering.social';
+// const String iOSAppId = 'ZF3Y932DXT.com.mothering.social';
 
 const String shareAppTitle = appName;
 const String shareiOSAppMessage = '';

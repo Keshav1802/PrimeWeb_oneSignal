@@ -334,11 +334,11 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     ),
 
     //settings tab
-    Navigator(
-      key: _navigatorKeys[2],
-      onGenerateRoute: (routeSettings) {
-        return MaterialPageRoute(builder: (_) => const SettingsScreen());
-      },
-    ),
+    // Navigator(
+    //   key: _navigatorKeys[2],
+    //   onGenerateRoute: (routeSettings) {
+    //     return MaterialPageRoute(builder: (_) => const SettingsScreen());
+    //   },
+    // ),
   ];
 }
