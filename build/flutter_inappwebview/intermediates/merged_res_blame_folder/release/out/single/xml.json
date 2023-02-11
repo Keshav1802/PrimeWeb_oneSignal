@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\Downloads\\PrimeWeb_oneSignal\\PrimeWeb_oneSignal\\build\\flutter_inappwebview\\intermediates\\merged_res\\release\\xml\\image_share_filepaths.xml",
+        "source": "C:\\Users\\Keshav Kumar\\.gradle\\caches\\transforms-3\\05304738454a7c6fee076a188df4c25d\\transformed\\browser-1.4.0\\res\\xml\\image_share_filepaths.xml"
+    },
+    {
+        "merged": "D:\\Downloads\\PrimeWeb_oneSignal\\PrimeWeb_oneSignal\\build\\flutter_inappwebview\\intermediates\\merged_res\\release\\xml\\provider_paths.xml",
+        "source": "C:\\Users\\Keshav Kumar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_inappwebview-5.7.2+3\\android\\src\\main\\res\\xml\\provider_paths.xml"
+    }
+]
