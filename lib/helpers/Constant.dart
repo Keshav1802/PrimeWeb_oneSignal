@@ -56,6 +56,6 @@ const String messageIcon = '@mipmap/ic_launcher_squircle';
 const oneSignalAndroidAppId = '17fa2879-1c54-4bbd-9b53-3919fdfe6b12';
 
 //copy your  one-signal ios app id
-const oneSignalIOSAppId = 'b7137cc0-c5f5-4029-a442-c02e5153c931';
+const oneSignalIOSAppId = '76d7485c-5061-4eaf-9552-e0f7571da714';
 
 const String iconPath = 'assets/icons/';
